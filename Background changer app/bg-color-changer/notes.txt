@@ -1,0 +1,16 @@
+onclick method ek special method hai
+
+ye ek function expect krta hai --> meaning ki uska reference
+kuch aise  onClick = { anyFunction }
+
+
+lekin agar kuch data pass krna hai toh simply toh hoga nhi 
+
+onClick{anyFunction(data)} aise likhna hi pdega.
+
+lekin isme hoga ki function haar baar execute ho jyega. event trigger hue bina hie.
+
+toh usko solve krne ke liye callback function me daal do. aisa bs uss syntax problem ke chalte krna padta hai
+
+
+onCLick { () => anyFunction(data) }   ---> will work fine 
