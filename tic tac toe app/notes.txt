@@ -1,0 +1,14 @@
+direct componet me me style = {} use kr skte hai.
+
+<div className = ""> 
+    <component />
+<div>
+
+isme component pr nhi balki uske parent yaani div pr lgega style. component pr alag se lga lo jo v lgana hai
+
+
+lekin 
+
+<component  style = {} /> 
+
+ye krne se direct component pr hi lag jyega style 

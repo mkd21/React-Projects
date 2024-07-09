@@ -1,0 +1,9 @@
+.eachCardStyle_usingSeperateFile_css
+{
+    width: 172px;
+    height: 171px;
+    border : 1px solid red;
+    border-radius : 23%;
+    position: relative;
+    background-color: yellow;
+}

@@ -1,0 +1,11 @@
+.resetBtn
+{
+    margin: 0px 0px 0px 118px;
+    width: 100px;
+    height: 38px;
+    border: none;
+    border-radius: 23px;
+    font-weight: 600;
+    background-color: #72c272;
+    box-shadow: 2px 3px 5px #6e2fad;
+}

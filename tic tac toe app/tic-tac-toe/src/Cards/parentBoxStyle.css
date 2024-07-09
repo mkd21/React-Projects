@@ -1,0 +1,11 @@
+.tic-tac-toe-parent-box
+{
+    border: 1px solid black;
+    height: 579px;
+    width: 678px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 26px;
+    border-radius: 7%;
+}
