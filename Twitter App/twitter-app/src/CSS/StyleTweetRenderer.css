@@ -1,0 +1,7 @@
+.TweetdisplayBox
+{
+    width: 500px;
+    border: 1px solid red;
+    margin-bottom: 23px;
+    border-radius: 10px;
+}
