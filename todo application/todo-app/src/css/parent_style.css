@@ -1,0 +1,14 @@
+body 
+{
+    margin: 0;
+    padding: 0;
+}
+
+#parent 
+{
+    color: black;
+    background: linear-gradient(149deg, rgba(2,0,36,1) 0%, rgba(234,234,210,1) 47%, rgba(0,212,255,1) 91%);
+    width:640px;
+    padding:40px;
+    border-radius: 23px;
+}

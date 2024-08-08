@@ -1,0 +1,10 @@
+#taskParent 
+{
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    /* background-color: rgb(71, 192, 24); */
+    display: flex;
+    align-items: center;
+    height: 71px;
+    margin-bottom: 23px;
+}
