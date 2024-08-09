@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { memo } from "react";
 
-const memoiseAddTweetComponent = memo(function addTweet({addTweetHandling})
+const memoisedAddTweetComponent = memo(function addTweet({addTweetHandling})
 {
     const [text , updateText] = useState("");
     return(
@@ -20,4 +20,4 @@ const memoiseAddTweetComponent = memo(function addTweet({addTweetHandling})
     );
 })
 
-export default memoiseAddTweetComponent;
+export default memoisedAddTweetComponent;
