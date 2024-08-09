@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ToastContainer , toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+let count = 1;
 function parent()
 {
     const [Length , updateLength] = useState(8);
@@ -9,7 +10,7 @@ function parent()
     const [password , updatePassword] = useState("");
 
     // password generator function 
-    let randomPasswordGenerator = () =>
+    let randomPasswordGenerator = useCallback( () =>
     {
         let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         if(characterInUse) text += "!$%^ &*/?";
@@ -22,11 +23,10 @@ function parent()
             generatedPassword += text[random];
         }
         updatePassword(generatedPassword);
-    };
+    } , [Length , NumberInUse , characterInUse]);   
 
      // useEffect hook 
     useEffect( () =>{
-
         randomPasswordGenerator();
         
     } , [Length , NumberInUse , characterInUse]);
@@ -61,7 +61,10 @@ function parent()
                 </label>
 
                 <label htmlFor="numberCheckbox">
-                    <input id="numberCheckbox" type="checkbox" onClick={() => updateNumberInUse(!NumberInUse)}/>
+                    <input id="numberCheckbox" type="checkbox" onClick={() => {
+                        updateNumberInUse(!NumberInUse);
+                        randomPasswordGenerator();
+                        }}/>
                     Numbers
                 </label>
 
