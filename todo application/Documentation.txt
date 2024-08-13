@@ -1,0 +1,48 @@
+for input ,  add todo and delete all
+
+sent the function from parent to the child using props. 
+
+so that i can get the values that is filled inside the input tag
+
+added click event handler on add todo button 
+
+click handler on delete all todo button also 
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
+now sent the props on task component 
+
+task array sent
+
+update todo function sent 
+
+delete todo function sent 
+
+made a final component and transfered all the props to render the data
+
+////////////////////////////////////////////////////////////////////////////
+
+
+added useState hooks in finalComponent 
+
+to manage edit button and save button 
+
+conditional rendering was done according according to the value of state variable
+
+one more state for finding out taks is completed or not
+
+if yes then made the state value true and added some styles according to that only
+
+but problem arised that if marked completed and then click the delete button then the new task also gets the same css.
+
+new task means after deleting let say task at index 4 then task at index 5 should come up and index should become 4 
+
+in that case it also get marked as completed 
+
+
+to solve it 
+
+i just added in delete button event that if anyone clicks delete button 
+make the completed status as false
