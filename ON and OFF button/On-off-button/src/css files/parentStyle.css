@@ -1,0 +1,19 @@
+#parent_off 
+{
+    background-color: rgb(250, 243, 243);
+    width: 160px;
+    height: 54px;
+    padding: 4px 0px 12px 6px;
+    border-radius: 23px;
+    transition: all 0.3s;
+}
+
+#parent_on
+{
+    background-color: rgb(108, 187, 12);
+    width: 160px;
+    height: 54px;
+    padding: 4px 0px 12px 104px;
+    border-radius: 23px;
+    transition: all 0.3s;
+}
