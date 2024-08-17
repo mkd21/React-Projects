@@ -20,7 +20,7 @@ const finalComp = ({todoTask , id , updaterFunction , todoTaskDelete}) =>{
                 {
                     (isEditing) ? <input className="ml-3 w-64 rounded-lg pl-3 placeholder:italic placeholder:text-zinc-950" type="text" value={todoTask} onChange={(e) => exec(e)} /> 
                     : 
-                    <p className={ (completed) ? "pl-4 font-medium capitalize line-through" : "pl-4 font-medium capitalize "}>{todoTask}</p>
+                    <p className={ (completed) ? "pl-4 font-medium capitalize line-through" : "pl-4 font-medium capitalize"}>{todoTask}</p>
                 }
             </div>
 
@@ -34,7 +34,7 @@ const finalComp = ({todoTask , id , updaterFunction , todoTaskDelete}) =>{
                     
                     }} className=" px-2 rounded-md bg-orange-300">Delete</button> 
 
-                <button onClick={() => updateCompleted(true)} className="px-2 rounded-md bg-lime-400">{(completed) ? "Already Done" :  "Completed?" }</button>
+                <button onClick={() => updateCompleted(true)} className="px-2 rounded-md bg-lime-400"> {(completed) ? "Already Done" :  "Completed?" } </button>
                 
             </div>
         </>
