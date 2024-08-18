@@ -10,7 +10,7 @@ function App() {
     "marginBottom" : "45px",
     "padding" :"20px",
     "borderRadius" : "23px"
-  }
+  } 
 
   function updateBg(data){
     // console.log("working");
