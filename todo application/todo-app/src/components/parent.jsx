@@ -11,14 +11,15 @@ import Task_Comp from "./tasks.jsx";
 //     {task : "task3" ,  id : 2}
 // ];
  
-
 function parent()
 {
     function getData()
     {
-        let retrieveData = JSON.parse( localStorage.getItem("items") );
-        if(retrieveData.length == 0) return [];
-        else return retrieveData;
+        let retrievedData = JSON.parse(localStorage.getItem("items"));
+        // console.log(retrievedData);
+
+        if(retrievedData) return retrievedData;
+        else return [];
     }
 
     const [contentArr , updateContent] = useState(getData);
