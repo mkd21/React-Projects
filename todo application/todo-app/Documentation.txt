@@ -1,0 +1,96 @@
+for input ,  add todo and delete all
+
+sent the function from parent to the child using props. 
+
+so that i can get the values that is filled inside the input tag
+
+added click event handler on add todo button 
+
+click handler on delete all todo button also 
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
+now sent the props on task component 
+
+task array sent
+
+update todo function sent 
+
+delete todo function sent 
+
+made a final component and transfered all the props to render the data
+
+////////////////////////////////////////////////////////////////////////////
+
+
+added useState hooks in finalComponent 
+
+to manage edit button and save button 
+
+conditional rendering was done according according to the value of state variable
+
+one more state for finding out taks is completed or not
+
+if yes then made the state value true and added some styles according to that only
+
+but problem arised that if marked completed and then click the delete button then the new task also gets the same css.
+
+new task means after deleting let say task at index 4 then task at index 5 should come up and index should become 4 
+
+in that case it also get marked as completed 
+
+
+to solve it 
+
+i just added in delete button event that if anyone clicks delete button 
+make the completed status as false
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+to prevent data from deleting
+
+for this we needed to store the data into the local storage,  that is provided in the browser
+
+setItems( " key" , "data") --> will add the data to the storage
+
+--->>>>  make sure that everything , whether it is key or the the data that we are sending to store 
+
+--->>>>  to convert the data into string use JSON.stringify() function .
+
+why not toString() ?
+
+because it will convert data into string.  let's say if we are push an array then it will convert an array into string.
+
+where as JSON.stringify() will only convert the data into into string without altering it's type 
+
+
+
+TO retrieve the data from local storage ?
+
+JSON.parse()   ->>> will convert the string data into it's original form 
+
+
+
+it is necessary to put the checks before we do JSON.parse() , because if the data is null then doing JSON.parse() will result into errors
+
+a simple if else check will do the work
+
+
+if(validData) return validData
+
+else return [];       --> this case will hit when nothing will be present in the local data.
+
+when we have deleated every task of todo 
+
+uske badd we refresh the browser then it will check if data is pressent or not?
+
+agar present rhega toh koi dikkat nhi hai lekin iss case me toh data present rhega hie nhi iska matlab hai null
+
+toh else case hit hoga aur ek empty array return hoga 
+
+jo ki state variable me add ho jyega
+
