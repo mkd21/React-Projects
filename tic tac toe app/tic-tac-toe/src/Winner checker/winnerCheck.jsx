@@ -25,7 +25,7 @@ function winnerDecider(board , symbol)
         return symbol;
     } 
 
-    // Diagonal 
+    // Diagonal  
 
     if( (board[2] == board[4]) &&  (board[4] == board[6]) && (board[6] == symbol))
     {
