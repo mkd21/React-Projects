@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "../css/parent_style.css";
 import InputandAddTodo from "./inputAndAddtodo.jsx";
@@ -11,10 +11,23 @@ import Task_Comp from "./tasks.jsx";
 //     {task : "task3" ,  id : 2}
 // ];
 
+
 function parent()
 {
-    const [contentArr , updateContent] = useState([]);
+    function getData()
+    {
+        let retrieveData = JSON.parse( localStorage.getItem("items") );
+        if(retrieveData.length == 0) return [];
+        else return retrieveData;
+    }
 
+    const [contentArr , updateContent] = useState(getData);
+
+    useEffect( () =>{
+        localStorage.setItem("items" , JSON.stringify(contentArr));
+    } , [contentArr]);
+    
+    
     function updater(data)
     {
         updateContent([...contentArr , {task : data , id : contentArr.length}]);

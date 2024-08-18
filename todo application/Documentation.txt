@@ -46,3 +46,29 @@ to solve it
 
 i just added in delete button event that if anyone clicks delete button 
 make the completed status as false
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+to prevent data from deleting
+
+for this we needed to store the data into the local storage,  that is provided in the browser
+
+setItems( " key" , "data") --> will add the data to the storage
+
+--->>>>  make sure that everything , whether it is key or the the data that we are sending to store 
+
+--->>>>  to convert the data into string use JSON.stringify() function .
+
+why not toString() ?
+
+because it will convert data into string.  let's say if we are push an array then it will convert an array into string.
+
+where as JSON.stringify() will only convert the data into into string without altering it's type 
+
+
+
+TO retrieve the data from local storage ?
+
+JSON.parse()   ->>> will convert the string data into it's original form 
