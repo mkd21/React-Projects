@@ -10,7 +10,7 @@ import Task_Comp from "./tasks.jsx";
 //     {task : "task2" ,  id : 1},
 //     {task : "task3" ,  id : 2}
 // ];
-
+ 
 
 function parent()
 {
@@ -27,7 +27,7 @@ function parent()
         localStorage.setItem("items" , JSON.stringify(contentArr));
     } , [contentArr]);
     
-    
+
     function updater(data)
     {
         updateContent([...contentArr , {task : data , id : contentArr.length}]);
