@@ -1,0 +1,4 @@
+if we are passing single variable as a prop then {} single curly brace is good
+
+but if we are passing multiple values then {{}} double curly braces are necessary
+
