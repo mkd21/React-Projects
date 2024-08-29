@@ -1,0 +1,17 @@
+
+agar component folder me work kar rhe hai aur styles ko applicable krana chahte hai toh tailwind.config.js file me path location change krna hoga
+
+by default ye ./src rhta hai
+
+
+
+e.target ko destructure krke jo bhi attributes present hai input me usko extract kr skte hai
+
+<input type = "text" id = "first" name= "firstName" placeholder = "Firstname" onChange={(e) => handleData(e)}/>
+<input type = "text" id = "Last" name= "LastName" placeholder = "Firstname" onChange={(e) => handleData(e)}/>
+<input type = "text" id = "phone" name= "contact" placeholder = "Firstname" onChange={(e) => handleData(e)}/>
+
+const {name } = e.target;
+
+
+name ka corresponding value mil jyega   ex ->>> firstName , LastName , contact
