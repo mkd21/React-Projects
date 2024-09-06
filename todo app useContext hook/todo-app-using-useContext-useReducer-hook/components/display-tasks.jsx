@@ -7,7 +7,6 @@ import Renderer from "./render.jsx";
 function displayTasks()
 {
     const {arr} = useContext(Context);
-
     return(
         <>
             {
