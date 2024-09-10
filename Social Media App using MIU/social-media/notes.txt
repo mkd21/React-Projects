@@ -1,0 +1,30 @@
+
+
+
+environment variables are used when we dont want to expose our condidential details
+
+like app-id , key-id etc..
+
+
+we setup an env file using .env
+
+inside the env we can write our confidential details
+
+now,
+
+if we write something like  
+
+VITE_ANY_NAME = "JDJD"
+
+it can be accessed to the code for our use 
+
+if we dont give VITE as prefix then it will not be allowed to access in our code 
+
+to access our secret data inside our code we we an object
+
+import.meta.env.(name of the variable)
+
+our data will be available inside the code 
+
+sirf we variable visible na ki wo actual secret data.
+

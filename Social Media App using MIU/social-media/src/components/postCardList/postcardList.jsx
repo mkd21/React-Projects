@@ -10,6 +10,9 @@ function CardList(){
     const [responseData , updateResponseData] = useState([]);
 
     useEffect( () =>{
+
+        // using axios library 
+        
         // axios.get("https://dummyjson.com/products")
         // .then( (res) => {
         //     updateResponseData([...res.data.products]);
@@ -18,12 +21,14 @@ function CardList(){
         //     console.log(err);
         // })
 
+        // using async function 
         async function funk()
         {
             let res = await axios.get("https://dummyjson.com/products")
-            console.log(import.meta.env.VITE_SECRET_KEY);
-            console.log(import.meta.TOP_secret);
-            
+
+            // console.log(import.meta.env.VITE_SECRET_KEY);            
+            // console.log(import.meta.TOP_secret);
+
             updateResponseData([...res.data.products]);
         }
 
