@@ -7,7 +7,7 @@ import axios from "axios";
 
 function CardList(){
 
-    const [responseData , updateResponseData] = useState([]);
+    const [responseData , updateResponseData] = useState([]); 
 
     useEffect( () =>{
 
