@@ -1,0 +1,11 @@
+.parentBox
+{
+    background-color: rgb(197, 136, 56);
+    border: 2px solid dashed;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 23px;
+}
