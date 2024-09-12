@@ -7,7 +7,10 @@ const API = axios.create({
 
 
 export const getData = () => {
-
     return API.get("/posts");
-
 }
+
+export const deleteData = (id) =>{
+    return API.delete(`/posts/${id}`);
+    // return new Error("not allowed");
+}   

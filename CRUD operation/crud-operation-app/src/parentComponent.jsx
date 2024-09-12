@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 
 import {Cards} from "./cards/cards.jsx";
 
-import {getData} from "../api/myApi.jsx";
+import {getData , deleteData} from "../api/myApi.jsx";
 
 import {ContextData} from "./contexts/createContext.js";
 
@@ -24,6 +24,22 @@ const Parent = () =>{
 
     } , []);
 
+    async function dataDelete(id)
+    {
+        try{
+            const res = await deleteData(id);
+            if(res.status == 200){
+                const newFilteredData = stateData.filter((val) => {
+                    return val.id != id;
+                })
+                updateData(newFilteredData);
+            }
+        }
+        catch(err){
+            console.log(err);
+        }   
+    }
+
     return(
 
         <>
@@ -38,7 +54,7 @@ const Parent = () =>{
                         const {id , title , body} = val;
 
                     return (
-                        <ContextData.Provider key={val.id} value={{userId : id , title , body}}>
+                        <ContextData.Provider key={val.id} value={{userId : id , title , body , dataDelete}}>
                             <Cards />
                         </ContextData.Provider>
                     )})
