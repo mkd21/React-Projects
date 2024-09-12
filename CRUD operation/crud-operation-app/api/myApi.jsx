@@ -12,5 +12,8 @@ export const getData = () => {
 
 export const deleteData = (id) =>{
     return API.delete(`/posts/${id}`);
-    // return new Error("not allowed");
 }   
+
+export const addData = (data) =>{
+    return API.post("/", data);
+}

@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 
 import {Cards} from "./cards/cards.jsx";
 
-import {getData , deleteData} from "../api/myApi.jsx";
+import {getData , deleteData , addData} from "../api/myApi.jsx";
 
 import {ContextData} from "./contexts/createContext.js";
 
@@ -12,6 +12,8 @@ import SearchBar from "./searchBar/searchBar.jsx";
 const Parent = () =>{
 
     const [stateData , updateData] = useState([]);
+    const [addDataVariable , updateAddData] = useState({title : "" , body : ""});
+
 
     useEffect( () => {
         
@@ -40,8 +42,12 @@ const Parent = () =>{
         }   
     }
 
-    return(
+    async function addTheData(){
 
+    }
+
+    return(
+        
         <>
             <SearchBar />
 
@@ -49,15 +55,9 @@ const Parent = () =>{
 
                 {
                     (stateData.length == 0) ? "Loading Data..." :
-
-                    stateData.map((val) => {
-                        const {id , title , body} = val;
-
-                    return (
-                        <ContextData.Provider key={val.id} value={{userId : id , title , body , dataDelete}}>
-                            <Cards />
-                        </ContextData.Provider>
-                    )})
+                    <ContextData.Provider value={{stateData , addDataVariable , updateAddData}}>
+                        <Cards />
+                    </ContextData.Provider>
                 }
                 
             </div>
