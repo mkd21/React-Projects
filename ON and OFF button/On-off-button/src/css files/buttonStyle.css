@@ -6,13 +6,13 @@
     padding: 14px 0px 12px 0px;
     border-radius: 50%;
     border: none;
-    color: white;
+    color: white; 
     font-weight: bolder;
 }
 
 #button_on
 {
-    background-color: rgb(0, 240, 72);
+    background-color: rgb(0, 240, 72); 
     width: 50px;
     height: 46px;
     padding: 14px 0px 12px 0px;
