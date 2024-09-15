@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 
 import {Cards} from "./cards/cards.jsx";
 
-import {getData , deleteData , addData} from "../api/myApi.jsx";
+import {getData , deleteData , addData , update} from "../api/myApi.jsx";
 
 import {ContextData} from "./contexts/createContext.js";
 
@@ -36,26 +36,68 @@ const Parent = () =>{
                 })
                 updateData(newFilteredData);
             }
-        }
+        } 
         catch(err){
             console.log(err);
         }   
     }
 
-    async function addTheData(){
+    async function addTheData(receivedValue){
 
+        try{
+            const res = await addData(receivedValue);
+            if(res.status == 201)
+            {
+                updateData([...stateData , {id : stateData.length + 1 , title : res.data.title , body : res.data.body}]);
+                updateAddData({title : "" , body : ""});
+            }
+        }
+        catch(err){
+            console.log("an error has occured",err);
+        }
     }
+
+
+    const editDataInMain =  (receivedData) =>{
+
+        let updatedDataArr = stateData.map((val) => {
+            if(receivedData.id == val.id)
+            {
+                return {...val , title : receivedData.title , body : receivedData.body};
+            }
+            return val;
+        })
+
+        updateData(updatedDataArr);
+    }
+
+    async function updateTheData(data)
+    {
+        console.log(data.id);
+        try{
+            const res = await update(data.id , stateData);
+            console.log(res);
+            console.log(res.status);
+        }
+        catch(errMessage){
+            console.log("error message is",errMessage);
+        }  
+    }
+
 
     return(
         
         <>
-            <SearchBar />
+            <ContextData.Provider value = {{addDataVariable , updateAddData , addTheData}}>
+                <SearchBar />
+            </ContextData.Provider>
 
             <div style={{display : "flex", flexWrap : "wrap", justifyContent : "space-around", padding: "0px 50px 0px 50px"}}>
 
                 {
                     (stateData.length == 0) ? "Loading Data..." :
-                    <ContextData.Provider value={{stateData , addDataVariable , updateAddData}}>
+
+                    <ContextData.Provider value={{stateData , addDataVariable , dataDelete , updateData , editDataInMain , updateTheData}}>
                         <Cards />
                     </ContextData.Provider>
                 }

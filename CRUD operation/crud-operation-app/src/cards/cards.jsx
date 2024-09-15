@@ -1,18 +1,21 @@
 
 import "../styles/cardParent.css";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ContextData } from "../contexts/createContext";
 
 export const Cards = () =>{
 
-    const {stateData} = useContext(ContextData);
+    const {stateData , dataDelete , editDataInMain , updateTheData } = useContext(ContextData);
+
+    const [isEditing , updateIsEditing] = useState(false);
+    const [idStorage , updateIdStorage] = useState(null);
 
     return(
         <>
             {
                 stateData.map((val) => {
-                    
+
                     return(
 
                         <div key={val.id} className="cardParent border-l-4 border-gray-200 bg-slate-300 rounded-lg">
@@ -22,24 +25,33 @@ export const Cards = () =>{
                             </section>
 
                             <section id="titleSection" className="ml-6 mb-3">
-                                <p className="font-bold">
-                                    Title : {val.title}
-                                </p>
+                                {
+                                    (val.id == idStorage && (isEditing)) ? <input type="text" value={val.title} onChange={(e) => editDataInMain({title : e.target.value , id : val.id , body : val.body})}/> 
+                                                                            : 
+                                                                            <p className="font-bold">Title : {val.title} </p>
+                                }
                             </section>
 
                             <section id="descriptionSection" className="ml-6 mb-3">
-                                <p>
-                                    {val.body}
-                                </p>
+                                {
+                                    (val.id == idStorage && (isEditing)) ? <textarea rows={7} cols={50} value={val.body} onChange={(e) => editDataInMain({body : e.target.value , id : val.id , title : val.title})}/> 
+                                                                            : 
+                                                                            <p>{val.body}</p> 
+                                }
                             </section>
 
                             <section className="mt-6 ml-6 mb-5">
 
-                                <button className="bg-emerald-600 text-blue-100 mr-5 w-20 p-2 rounded-3xl">
-                                    Edit
+                                <button className="bg-emerald-600 text-blue-100 mr-5 w-20 p-2 rounded-3xl" onClick={(e) => {
+                                    updateIdStorage(val.id);
+                                    updateIsEditing(!isEditing);
+
+                                    (e.target.textContent == "Save" && updateTheData({id : val.id , title : val.title , body : val.body}));
+                                }}>
+                                    {(isEditing) ? "Save" : "Edit"}
                                 </button>
 
-                                <button className="bg-red-600 text-yellow-200 w-20 p-2 rounded-2xl" onClick={() => dataDelete(userId)}>
+                                <button className="bg-red-600 text-yellow-200 w-20 p-2 rounded-2xl" onClick={() => dataDelete(val.id)}>
                                     Delete
                                 </button>
 
@@ -55,18 +67,3 @@ export const Cards = () =>{
 
     );
 }
-
-
-
-
-{/* 
-    
-
-
-
-
-
-
-
-
-*/}
