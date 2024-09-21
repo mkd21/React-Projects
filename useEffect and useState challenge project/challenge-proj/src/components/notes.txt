@@ -1,0 +1,19 @@
+
+
+
+if we want to use setInterval or setTimeout then we must use them inside the useEffect hooks
+
+it will make sure that closure and re render works in proper manner
+
+if we use them directly the they take the initial value of state variable and keeps using the initial value everytime
+
+https://chatgpt.com/c/66e7193d-19f4-8010-8a39-646f3d78b50b
+
+for reference 
+
+cleanup method is necessary because if we dont give the cleanup ten the value will be incremented twice.
+
+because of Strict mode the setInterval is executed twice.
+
+cleanup method makes sure the the inteval is cleared when re rendering takes place.
+
