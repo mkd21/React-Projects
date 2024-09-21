@@ -1,14 +1,18 @@
 
 import {useState , useEffect} from "react";
 
-import { getData , getDetailedData} from "../api/apiFile";
+import { getData , getDetailedData} from "../api/apiFile.js";
 
 import {CardRenderer} from "./cards.jsx";
 
+import {SearchPokemon} from "./searchBox.jsx";
+
+import Loader from "./loader.jsx";
 
 export const Cards = () =>{
 
-    const [apiData , setData] = useState(null);
+    const [apiData , setData] = useState([]);
+    const [inputData , updateinputData] = useState("");
 
     useEffect(() => {
         async function dataGetter() {
@@ -33,17 +37,27 @@ export const Cards = () =>{
 
     } , []);
 
-    console.log(apiData);
+    const filteredData = apiData.filter((val) => {
+        if(val.name.includes(inputData))
+            return val;
+    });
+
     return(
 
         <>
+            <h1 className="text-5xl" style={{marginLeft : "34%" , marginTop : "23px" , textShadow : "3px 4px 6px grey"}}>Let's Catch Pokemon...</h1>
+
+            <SearchPokemon updateinput = {updateinputData}/>
             {
-                (apiData == null) ? <h1>Loading...</h1>
+                (apiData == "") ? <Loader />
                 :
-                    <div className="bg-blue-300">
-                            <div className="flex flex-wrap ">
+                    <div className="">
+
+                            <div className="flex flex-wrap ml-12 ">
                                 {
-                                    apiData.map((val) => <CardRenderer key={val.id} 
+                                    (filteredData.length == 0) ? <h1 className="text-2xl">Pokemon not Available..</h1>
+                                    :
+                                    filteredData.map((val) => <CardRenderer key={val.id} 
                                                         pokemonImage = {val.sprites.other.dream_world.front_default}
                                                         pokemonName = {val.forms[0].name}
             

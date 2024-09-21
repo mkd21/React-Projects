@@ -9,7 +9,7 @@ import axios from "axios";
 //     return API.get("/pokemon", {params : {limit : 20}});
 // }
 
-export const getData = axios.get("https://pokeapi.co/api/v2/pokemon" , {params : {limit : 50}});
+export const getData = axios.get("https://pokeapi.co/api/v2/pokemon" , {params : {limit : 100}});
 
 export const getDetailedData = (data) => {
     return axios.get(data);

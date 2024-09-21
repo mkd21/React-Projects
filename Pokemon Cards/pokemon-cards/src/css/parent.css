@@ -1,5 +1,10 @@
 #parent
 {
-    border: 1px solid rebeccapurple;
-    width: 366px;
+    border: none;
+    transition: all .2s;
+}
+
+#parent:hover 
+{
+    box-shadow: none;
 }
