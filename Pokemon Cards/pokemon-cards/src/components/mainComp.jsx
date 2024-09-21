@@ -9,6 +9,8 @@ import {SearchPokemon} from "./searchBox.jsx";
 
 import Loader from "./loader.jsx";
 
+import "../css/customMedia.css";
+
 export const Cards = () =>{
 
     const [apiData , setData] = useState([]);
@@ -38,45 +40,44 @@ export const Cards = () =>{
     } , []);
 
     const filteredData = apiData.filter((val) => {
-        if(val.name.includes(inputData))
+        if(val.name.includes(inputData.toLowerCase()))
             return val;
     });
 
     return(
 
         <>
-            <h1 className="text-5xl" style={{marginLeft : "34%" , marginTop : "23px" , textShadow : "3px 4px 6px grey"}}>Let's Catch Pokemon...</h1>
+            <h1 className="headerText 2xl:text-6xl 2xl:ml-96 2xl:pl-24" style={{marginTop : "23px" , textShadow : "3px 4px 6px grey"}}>Let's Catch Pokemon...</h1>
 
             <SearchPokemon updateinput = {updateinputData}/>
             {
                 (apiData == "") ? <Loader />
                 :
-                    <div className="">
-
-                            <div className="flex flex-wrap ml-12 ">
-                                {
-                                    (filteredData.length == 0) ? <h1 className="text-2xl">Pokemon not Available..</h1>
-                                    :
-                                    filteredData.map((val) => <CardRenderer key={val.id} 
-                                                        pokemonImage = {val.sprites.other.dream_world.front_default}
-                                                        pokemonName = {val.forms[0].name}
+    
+                <div className="flex flex-wrap cardsDIV">
+                        {
+                            (filteredData.length == 0) ? <h1 className="text-2xl">Pokemon not Available..</h1>
+                            :
+                            filteredData.map((val) => <CardRenderer key={val.id} 
+                                                pokemonImage = {val.sprites.other.dream_world.front_default}
+                                                pokemonName = {val.forms[0].name}
             
-                                                        abilities = {
-                                                                        (val.abilities.length > 1) ? [val.abilities[0].ability.name , val.abilities[1].ability.name] 
-                                                                        : 
-                                                                        [val.abilities[0].ability.name , ""]
-                                                                    }
+                                                abilities = {
+                                                                (val.abilities.length > 1) ? [val.abilities[0].ability.name , val.abilities[1].ability.name] 
+                                                                : 
+                                                                [val.abilities[0].ability.name , ""]
+                                                            }
 
-                                                        height = {val.height}
-                                                        weight = {val.weight}
-                                                        speed = {val.stats[5].base_stat}
-                                                        Experience = {val.base_experience}
-                                                        Attack = {val.stats[1].base_stat}
-                                                        type = {val.types[0].type.name}
-                                                        />)
-                                }
-                            </div>
-                    </div>
+                                                height = {val.height}
+                                                weight = {val.weight}
+                                                speed = {val.stats[5].base_stat}
+                                                Experience = {val.base_experience}
+                                                Attack = {val.stats[1].base_stat}
+                                                type = {val.types[0].type.name}
+                                                />)
+                        }
+                </div>
+                
             }         
         </>  
     );
