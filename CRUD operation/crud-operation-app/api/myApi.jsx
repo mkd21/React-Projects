@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL : "https://jsonplaceholder.typicode.com"
+    baseURL : "https://jsonplaceholder.typicode.com",
 });
 
 
@@ -26,4 +26,4 @@ export const update = (id , data) =>{
     return API.put(`/posts/${id}`, data);
 }
 
-// when we are working with URL then don not give useless spaces. it could result in unexpected errors
+// when we are working with URL then do not give useless spaces. it could result in unexpected errors
