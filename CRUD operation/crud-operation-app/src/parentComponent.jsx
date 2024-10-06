@@ -26,24 +26,30 @@ const Parent = () =>{
 
     } , []);
 
-    async function dataDelete(id)
+    async function dataDelete(targetId)
     {
         try{
-            const res = await deleteData(id);
+            const res = await deleteData(targetId);       // api called to delete the specific data
+
             if(res.status == 200){
+
                 const newFilteredData = stateData.filter((val) => {
-                    return val.id != id;
-                })
+                    return val.id != targetId;
+                }).map((val , idx) => {
+                    val.id = idx + 1;
+                    return val;
+                });
+
                 updateData(newFilteredData);
             }
-        } 
+        }
         catch(err){
             console.log(err);
         }   
     }
 
     async function addTheData(receivedValue){
-
+        
         try{
             const res = await addData(receivedValue);
             if(res.status == 201)

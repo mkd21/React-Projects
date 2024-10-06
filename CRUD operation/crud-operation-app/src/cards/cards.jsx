@@ -48,7 +48,9 @@ export const Cards = () =>{
 
                                     (e.target.textContent == "Save" && updateTheData({id : val.id , title : val.title , body : val.body}));
                                 }}>
+
                                     {(isEditing) ? "Save" : "Edit"}
+                                    
                                 </button>
 
                                 <button className="bg-red-600 text-yellow-200 w-20 p-2 rounded-2xl" onClick={() => dataDelete(val.id)}>
