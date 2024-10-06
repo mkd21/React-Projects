@@ -9,7 +9,7 @@ const API = axios.create({
 export const getData = () => {
     return API.get("/posts");
 }
-
+ 
 // delete method
 export const deleteData = (id) =>{
     return API.delete(`/posts/${id}`);
