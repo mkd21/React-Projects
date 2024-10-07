@@ -1,8 +1,11 @@
 
-import "../styles/cardParent.css";
-
 import { useContext, useState } from "react";
 import { ContextData } from "../contexts/createContext";
+
+
+// responsive css style for cards 
+
+import "../styles/responsive style code/cards_responsive.css";
 
 export const Cards = () =>{
 
@@ -18,7 +21,7 @@ export const Cards = () =>{
 
                     return(
 
-                        <div key={val.id} className="cardParent border-l-4 border-gray-200 bg-slate-300 rounded-lg">
+                        <div key={val.id} className=" responsive_cards border-l-4 mb-3 border-gray-200 bg-slate-300 rounded-lg">
 
                             <section id="idSection" className="ml-6 mb-3 mt-3">
                                 <h2>{val.id}</h2>
@@ -32,7 +35,7 @@ export const Cards = () =>{
                                 }
                             </section>
 
-                            <section id="descriptionSection" className="ml-6 mb-3">
+                            <section id="descriptionSection" className="text-center ml-2 mr-2 mb-3">
                                 {
                                     (val.id == idStorage && (isEditing)) ? <textarea rows={7} cols={50} value={val.body} onChange={(e) => editDataInMain({body : e.target.value , id : val.id , title : val.title})}/> 
                                                                             : 
@@ -40,7 +43,7 @@ export const Cards = () =>{
                                 }
                             </section>
 
-                            <section className="mt-6 ml-6 mb-5">
+                            <section className="mt-6 mb-5 text-center">
 
                                 <button className="bg-emerald-600 text-blue-100 mr-5 w-20 p-2 rounded-3xl" onClick={(e) => {
                                     updateIdStorage(val.id);

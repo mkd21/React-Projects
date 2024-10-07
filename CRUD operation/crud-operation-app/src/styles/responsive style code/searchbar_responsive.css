@@ -1,0 +1,149 @@
+@media only screen and (min-width : 344px)
+{
+    .responsiveSearchBar
+    {
+        margin-left: 23px;
+    }
+}
+
+@media only screen and (max-width : 431px) {
+    .responsiveSearchBar
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width : 300px; 
+        height: 250px;
+        padding-top: 23px;
+    }
+    .responsiveAddTitle
+    {
+        margin-bottom: 14px;
+        padding-left: 12px;
+        width: 75%;
+    }
+    .responsiveAddBody
+    {
+        width: 75%;
+        margin-bottom:14px;
+    }
+    .responsiveButton
+    {
+        margin-bottom: 12px;
+        width: 118px;
+    }
+}
+
+@media only screen and (min-width : 360px) and (max-width : 375px)
+{
+    .responsiveSearchBar
+    {
+        margin-left: 30px;
+    }
+}
+
+@media only screen and (min-width : 375px)
+{
+    .responsiveSearchBar
+    {
+        margin-left: 40px;
+    }
+}
+
+@media only screen and (min-width : 390px)
+{
+    .responsiveSearchBar
+    {
+        margin-left: 46px;
+    }
+}
+@media only screen and (min-width : 412px)
+{
+    .responsiveSearchBar
+    {
+        margin-left: 59px;
+    }
+}
+
+@media only screen and (min-width : 430px)
+{
+    .responsiveSearchBar
+    {
+        margin-left: 65px;
+    }
+}
+
+
+/* for mid screen devices  */
+
+@media only screen and (min-width : 768px)
+{
+    .responsiveSearchBar
+    {
+        margin-right: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 178px;
+    }
+
+    .responsiveAddBody
+    {
+        width: 256px;
+    }
+
+    .responsiveButton
+    {
+        width: 118px;
+    }
+}
+
+@media only screen and (min-width : 912px)
+{
+    .responsiveAddTitle
+    {
+        width:225px;
+    }
+    .responsiveAddBody
+    {
+        width: 300px;
+    }
+    .responsiveButton
+    {
+        width: 118px;
+    }
+}
+
+/* big screen sizes  */
+
+@media only screen and (min-width : 1024px)
+{
+    .responsiveAddTitle
+    {
+        width:300px;
+    }
+    .responsiveAddBody
+    {
+        width: 300px;
+    }
+    .responsiveButton
+    {
+        width : 196px;
+    }
+}
+
+@media only screen and (min-width : 1300px)
+{
+    .responsiveAddTitle
+    {
+        width:500px;
+    }
+    .responsiveAddBody
+    {
+        width: 500px;
+    }
+    .responsiveButton
+    {
+        width : 196px;
+    }
+}

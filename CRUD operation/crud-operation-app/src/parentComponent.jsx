@@ -9,6 +9,9 @@ import {ContextData} from "./contexts/createContext.js";
 
 import SearchBar from "./searchBar/searchBar.jsx";
 
+
+import "./styles/responsive style code/cards_responsive.css";
+
 const Parent = () =>{
 
     const [stateData , updateData] = useState([]);
@@ -98,7 +101,7 @@ const Parent = () =>{
                 <SearchBar />
             </ContextData.Provider>
 
-            <div style={{display : "flex", flexWrap : "wrap", justifyContent : "space-around", padding: "0px 50px 0px 50px"}}>
+            <div className="responsive_parent_cards" style={{display : "flex", flexWrap : "wrap", justifyContent : "space-around", padding: "0px 50px 0px 50px"}}>
 
                 {
                     (stateData.length == 0) ? "Loading Data..." :
