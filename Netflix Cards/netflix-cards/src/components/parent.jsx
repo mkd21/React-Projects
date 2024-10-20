@@ -6,7 +6,7 @@ import RenderCards from "./cardRenderer.jsx";
 let parent = () =>
 {
     
-    return(
+    return( 
         <>
             <ul className="grid grid-cols-3" style={{ "margin":"0px 0px 0px 157px"}}>
                 {
