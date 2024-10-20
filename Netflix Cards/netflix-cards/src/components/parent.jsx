@@ -18,7 +18,7 @@ let parent = () =>
                                      movieDescription = {iterator.description}
                                      movieWatchLink = {iterator.watch_url}
                         /> 
-                    }
+                    }  
                     </li> )
                 }
             </ul>
