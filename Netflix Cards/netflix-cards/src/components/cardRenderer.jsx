@@ -6,7 +6,7 @@ const Render = (props) =>{
 
         <div id = "card-parentDiv" className="w-full p-7" style={{"height" : "27rem"}}>
 
-            <section>
+            <section>  
                 <img src={props.movieImage} alt="movie image" />
             </section>
 
